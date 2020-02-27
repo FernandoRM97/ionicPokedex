@@ -8,9 +8,11 @@
 
 <ion-content>
 
+    <!-- FILTRO PARA BUSCAR POKEMONS -->
     <ion-searchbar placeholder="Search Pokemon" (ionChange)="onSearchChange($event)">
     </ion-searchbar>
 
+    <!-- AQUI SI NO ENCUENTRA POKEMONS MUESTRA UN ESQUEMA ESPECIFICADO QUE SIMULA LA BUSQUEDA DE POKEMONS PERO SIN DATOS -->
     <ion-list *ngIf="pokemon.length == 0">
         <ion-item *ngFor="let i of [1,2,3,4,5]">
             <ion-avatar slot="start">
@@ -27,6 +29,7 @@
         </ion-item>
     </ion-list>
 
+    <!--AQUI MUESTRA LOS POKEMONS -->
     <ion-list>
         <ion-item *ngFor="let poke of pokemon;" [routerLink]="poke.pokeIndex">
             <ion-avatar slot="start">
@@ -39,6 +42,7 @@
         </ion-item>
     </ion-list>
 
+    <!-- INFINITE SCROLL IMPLEMENTADO PARA IR MOSTRANDO LOS POKEMONS DE 25 EN 25 -->
     <ion-infinite-scroll (ionInfinite)="loadPokemon(true, $event)">
         <ion-infinite-scroll-content loadSpinner="bubbles" loadingText="Loading more Pokemon...">
         </ion-infinite-scroll-content>

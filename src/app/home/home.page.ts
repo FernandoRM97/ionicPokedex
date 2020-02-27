@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
     this.loadPokemon();
   }
 
+  // FUNCION PARA MOSTRAR POKEMON DE 25 EN 25
   loadPokemon(loadMore = false, event?) {
     if (loadMore) {
       this.offset += 25;
@@ -28,15 +29,15 @@ export class HomePage implements OnInit {
       if (event) {
         event.target.complete();
       }
-
+      // TOPE PARA MUESTRE SOLO 125 POKEMON (NO FUNCIONA ACTUALMENTE)
       if (this.offset === 125) {
         this.infinite.disabled = true;
       }
     });
   }
 
+  // PARA CARGAR LOS POKEMONS
   onSearchChange(e) {
-
     let value = e.detail.value;
 
     if (value === '') {
@@ -45,6 +46,7 @@ export class HomePage implements OnInit {
        return;
     }
 
+    // SACAR POKEMONS DE API
     this.pokeService.findPokemon(value).subscribe(res => {
       this.pokemon = [res];
     }, err => {

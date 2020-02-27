@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+// IMPOTACIÓN DE LOS MODULOS UTILIZADOS EN LA APLICACIÓN
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

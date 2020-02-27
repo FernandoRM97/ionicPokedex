@@ -1,21 +1,26 @@
 <ion-header>
     <ion-toolbar color="primary">
         <ion-buttons slot="start">
+            <!-- BOTON PARA VOLVER AL HOME -->
             <ion-back-button defaultHref="home"></ion-back-button>
         </ion-buttons>
+        <!-- NOMBRE DEL POKEMON -->
         <ion-title text-capitalize>{{ details?.name }}</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+
     <div *ngIf="details">
+        <!-- SLIDE DE FOTOS DEL POKEMON -->
         <ion-slides pager="true" [options]="slideOpts">
             <ion-slide *ngFor="let sprite of details.images">
                 <img [src]="sprite" style="height: 250px;">
             </ion-slide>
         </ion-slides>
 
+        <!-- CARD DE IONIC DONDE MOSTRAMOS INFORMACION DEL POKEMON -->
         <ion-card>
             <ion-card-header>
                 <ion-card-title class="ion-text-capitalize">#{{ details.id}} {{ details.name }}
